@@ -1,0 +1,20 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "string": "cpp",
+        "STACK.C": "cpp",
+        "ctype.h": "c",
+        "*.tcc": "c",
+        "algorithm": "c",
+        "array": "c",
+        "vector": "c",
+        "string_view": "c",
+        "iomanip": "c",
+        "istream": "c",
+        "limits": "c",
+        "sstream": "c",
+        "streambuf": "c"
+    }
+}
