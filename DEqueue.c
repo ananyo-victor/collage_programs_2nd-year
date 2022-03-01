@@ -151,8 +151,14 @@ void Display()
         return;
     }
     printf("\n Elements are: \n");
-    for (int i = front; i <= rear; i++)
+    int i = front;
+    // for (int i = front; i <= rear; i++)
+    // {
+    //     printf("\t %d", dequeue[i]);
+    // }
+    while (i <= rear)
     {
         printf("\t %d", dequeue[i]);
+        i++;
     }
 }
