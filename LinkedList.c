@@ -13,6 +13,7 @@ void insertMiddle(struct node *);
 void insertEnd(struct node **);
 void Display(struct node *);
 int count(struct node *);
+void deletenode(struct node **);
 void main()
 {
     struct node *p;
@@ -27,6 +28,7 @@ void main()
         printf("\n 3. Insertion at End Of Linked List");
         printf("\n 4. Display");
         printf("\n 5. Count number of nodes");
+        printf("\n 6. Deletion of specified node ");
         printf("\n Enter your choice");
 
         scanf("%d", &choice);
@@ -46,7 +48,10 @@ void main()
             break;
         case 5:
             count(p);
-            printf("\n the number of nodes on the linked list is %d",n);
+            printf("\n the number of nodes on the linked list is %d", n);
+            break;
+        case 6:
+            deletenode(&p);
             break;
         default:
             printf("\n Invalid choice ");
@@ -114,11 +119,11 @@ void insertMiddle(struct node *q)
         return;
     }
     printf("\n Enter the element ");
-    scanf("%d",&num);
-    r=(struct node *)malloc(sizeof(struct node));
-    r->data=num;
-    r->next=temp->next;
-    temp->next=r;
+    scanf("%d", &num);
+    r = (struct node *)malloc(sizeof(struct node));
+    r->data = num;
+    r->next = temp->next;
+    temp->next = r;
 }
 void Display(struct node *q)
 {
@@ -130,12 +135,42 @@ void Display(struct node *q)
 }
 int count(struct node *q)
 {
-    int c=0;
-    while (q!=NULL)
+    int c = 0;
+    while (q != NULL)
     {
-        q=q->next;
+        q = q->next;
         c++;
     }
     return c;
-
+}
+void deletenode(struct node **q)
+{
+    struct node *old, *temp;
+    int num;
+    temp = *q;
+    printf("\n Enter the number of node you ant to delete");
+    scanf("%d", &num);
+    while (temp != num)
+    {
+        if (temp->data == num)
+        {
+            if (temp == *q)
+            {
+                *q = temp->next;
+            }
+            else
+            {
+                old->next = temp->next;
+            }
+            printf("\n The deleted node is %d", temp->data);
+            free(temp);
+            return;
+        }
+        else
+        {
+            old = temp;
+            temp = temp->next;
+        }
+    }
+    printf("\n The Element %d is not found ", num);
 }
