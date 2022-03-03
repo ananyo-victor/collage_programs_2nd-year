@@ -13,8 +13,9 @@ void insertMiddle(struct node *);
 void insertEnd(struct node **);
 void Display(struct node *);
 int count(struct node *);
-void deletenode(struct node **);
-void main()
+void deleteBeg(struct node **);
+void deletemid(struct node **);
+void deleteEnd(struct node **); void main()
 {
     struct node *p;
     int choice, n = 0;
@@ -29,6 +30,8 @@ void main()
         printf("\n 4. Display");
         printf("\n 5. Count number of nodes");
         printf("\n 6. Deletion of specified node ");
+        printf("\n 7. Deletion at the beginning ");
+        printf("\n 8. Deletion at the end ");
         printf("\n Enter your choice");
 
         scanf("%d", &choice);
@@ -51,7 +54,13 @@ void main()
             printf("\n the number of nodes on the linked list is %d", n);
             break;
         case 6:
-            deletenode(&p);
+            deletemid(&p);
+            break;
+        case 7:
+            deleteBeg(&p);
+            break;
+        case 8:
+            deleteEnd(&p);
             break;
         default:
             printf("\n Invalid choice ");
@@ -143,14 +152,47 @@ int count(struct node *q)
     }
     return c;
 }
-void deletenode(struct node **q)
+void deleteBeg(struct node **q)
+{
+    struct node *temp;
+    temp = *q;
+    if (*q == NULL)
+    {
+        printf("List is Empty");
+        return;
+    }
+    printf("The deleted element is %d", temp->data);
+    temp = temp->next;
+    (*q)->next = NULL;
+    free(*q);
+    (*q) = temp;
+}
+void deleteEnd(struct node **q)
+{
+    struct node *old, *temp;
+    temp = *q;
+    if (*q == NULL)
+    {
+        printf("List is Empty");
+        return;
+    }
+    while (temp->next != NULL)
+    {
+        old = temp;
+        temp = temp->next;
+    }
+    printf("The deleted element is %d", temp->data);
+    old->next = NULL;
+    free(temp);
+}
+void deletemid(struct node **q)
 {
     struct node *old, *temp;
     int num;
     temp = *q;
-    printf("\n Enter the number of node you ant to delete");
+    printf("\n Enter the number of node you want to delete");
     scanf("%d", &num);
-    while (temp != num)
+    while (temp != NULL)
     {
         if (temp->data == num)
         {

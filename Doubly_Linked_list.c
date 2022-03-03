@@ -28,7 +28,7 @@ void main()
         printf("\n 1. Insertion at beginning of Linked List");
         printf("\n 2. Insertion at Middle Of Linked List");
         printf("\n 3. Insertion at End Of Linked List");
-        printf("\n 4. Deletion at front Of Linked List");
+        printf("\n 4. Deletion at beginning Of Linked List");
         printf("\n 5. Deletion at End Of Linked List");
         printf("\n 6. Deletion at Middle Of Linked List");
         printf("\n 7. Display");
@@ -51,7 +51,7 @@ void main()
             DeleteFront(&p);
             break;
         case 5:
-            DeleteFront(&p);
+            DeleteRear(&p);
             break;
         case 6:
             DeleteMiddle(&p);
@@ -60,7 +60,7 @@ void main()
             Display(p);
             break;
         case 8:
-            count(p);
+            n=count(p);
             printf("\n the number of nodes on the Doubly linked list is %d", n);
             break;
         default:
@@ -225,7 +225,7 @@ void DeleteFront(struct node **q)
     temp->prev = NULL;
     *q = temp;
     r->next = NULL;
-    printf("The deleted node is ", r->data);
+    printf("The deleted node is %d", r->data);
     free(r);
 }
 void DeleteRear(struct node **q)
@@ -244,7 +244,7 @@ void DeleteRear(struct node **q)
     }
     old->next = NULL;
     temp->prev = NULL;
-    printf("The deleted node is ", temp->data);
+    printf("The deleted node is %d", temp->data);
     free(temp);
 }
 void DeleteMiddle(struct node **q)
@@ -259,13 +259,13 @@ void DeleteMiddle(struct node **q)
         return;
     }
     temp = *q;
-    while (temp->data == num)
+    while (temp->data != num)
     {
         temp = temp->next;
     }
+    printf("The deleted node is %d", temp->data);
     temp->prev->next = temp->next;
     temp->next->prev = temp->prev;
-    printf("The deleted node is ", temp->data);
     free(temp);
 }
 

@@ -48,7 +48,7 @@ int main()
 }
 void InsertFront()
 {
-    if ((front == 0) && (rear == (maxsize - 1)) || (front == rear + 1))
+    if (((front == 0) && (rear == (maxsize - 1))) || (front == rear + 1))
     {
         printf("\nQueue is full");
         return;
