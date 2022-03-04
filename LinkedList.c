@@ -15,7 +15,8 @@ void Display(struct node *);
 int count(struct node *);
 void deleteBeg(struct node **);
 void deletemid(struct node **);
-void deleteEnd(struct node **); void main()
+void deleteEnd(struct node **);
+void main()
 {
     struct node *p;
     int choice, n = 0;
@@ -166,6 +167,7 @@ void deleteBeg(struct node **q)
     (*q)->next = NULL;
     free(*q);
     (*q) = temp;
+    return;
 }
 void deleteEnd(struct node **q)
 {
@@ -184,6 +186,7 @@ void deleteEnd(struct node **q)
     printf("The deleted element is %d", temp->data);
     old->next = NULL;
     free(temp);
+    return;
 }
 void deletemid(struct node **q)
 {
