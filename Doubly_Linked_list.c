@@ -60,7 +60,7 @@ void main()
             Display(p);
             break;
         case 8:
-            n=count(p);
+            n = count(p);
             printf("\n the number of nodes on the Doubly linked list is %d", n);
             break;
         default:
@@ -95,43 +95,6 @@ void insertBeg(struct node **q)
         (*q) = temp;
     }
 }
-// void insertBeg(struct node **q)
-// {
-//     struct node *temp;
-//     int num;
-//     printf("\n Enter the element");
-//     scanf("%d", &num);
-//     temp = (struct node *)malloc(sizeof(struct node));
-//     temp->next = *q;
-//     temp->prev
-// }
-// void insertEnd(struct node **q)
-// {
-//     struct node *temp, *r;
-//     int num;
-//     printf("\n Enter the element");
-//     scanf("%d", &num); // 10 //20 //30
-//     if (*q == NULL)    // If the node is empty and creating first node
-//     {
-//         temp = (struct node *)malloc(sizeof(struct node));
-//         temp->data = num;
-//         temp->next = NULL;
-//         *q = temp; // globally it makes *q as First Node
-//     }
-//     else
-//     {
-//         temp = *q;
-//         // Go to Last Node
-//         while (temp->next != NULL)
-//         {
-//             temp = temp->next;
-//         }
-//         r = (struct node *)malloc(sizeof(struct node));
-//         r->data = num;
-//         r->next = NULL;
-//         temp->next = r;
-//     } // else
-// } // void insertEnd()
 void insertEnd(struct node **q)
 {
     struct node *temp, *r;
@@ -160,39 +123,16 @@ void insertEnd(struct node **q)
         r->next = NULL;
     }
 }
-// void insertMiddle(struct node *q)
-// {
-//     struct node *temp, *r;
-//     int i, loc, num;
-//     temp = q;
-//     printf("\n Enter the location you want to dd the node ");
-//     scanf("%d", &loc);
-//     for (i = 1; i < loc; i++)
-//     {
-//         temp = temp->next;
-//     }
-//     if (temp == NULL)
-//     {
-//         printf("There are less than %d elements in list ", loc);
-//         getch();
-//         return;
-//     }
-//     printf("\n Enter the element ");
-//     scanf("%d", &num);
-//     r = (struct node *)malloc(sizeof(struct node));
-//     r->data = num;
-//     r->next = temp->next;
-//     temp->next = r;
-// }
 void insertMiddle(struct node *q)
 {
-    struct node *temp, *r;
+    struct node *temp, *r, *old;
     int i, loc, num;
     temp = q;
     printf("\n Enter the location you want to dd the node ");
     scanf("%d", &loc);
     for (i = 1; i < loc; i++)
     {
+        old = temp;
         temp = temp->next;
     }
     if (temp == NULL)
@@ -205,10 +145,10 @@ void insertMiddle(struct node *q)
     scanf("%d", &num);
     r = (struct node *)malloc(sizeof(struct node));
     r->data = num;
-    r->next = temp->next;
-    r->prev = temp;
-    temp->next->prev = r;
-    temp->next = r;
+    r->next = temp;
+    r->prev = old;
+    old->next = r;
+    temp->prev = r;
 }
 
 void DeleteFront(struct node **q)

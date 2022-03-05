@@ -12,10 +12,10 @@ void insertBeg(struct node **);
 void insertMiddle(struct node *);
 void insertEnd(struct node **);
 void Display(struct node *);
-int count(struct node *);
 void deleteBeg(struct node **);
 void deletemid(struct node **);
 void deleteEnd(struct node **);
+int count(struct node *);
 void main()
 {
     struct node *p;
@@ -51,7 +51,7 @@ void main()
             Display(p);
             break;
         case 5:
-            count(p);
+            n = count(p);
             printf("\n the number of nodes on the linked list is %d", n);
             break;
         case 6:
@@ -113,13 +113,14 @@ void insertEnd(struct node **q)
 
 void insertMiddle(struct node *q)
 {
-    struct node *temp, *r;
+    struct node *temp, *r, *prev;
     int i, loc, num;
     temp = q;
-    printf("\n Enter the location you want to dd the node ");
+    printf("\n Enter the location you want to add the node ");
     scanf("%d", &loc);
     for (i = 1; i < loc; i++)
     {
+        prev = temp;
         temp = temp->next;
     }
     if (temp == NULL)
@@ -132,8 +133,8 @@ void insertMiddle(struct node *q)
     scanf("%d", &num);
     r = (struct node *)malloc(sizeof(struct node));
     r->data = num;
-    r->next = temp->next;
-    temp->next = r;
+    r->next = temp;
+    prev->next = r;
 }
 void Display(struct node *q)
 {

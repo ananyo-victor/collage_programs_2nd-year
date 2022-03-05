@@ -3,7 +3,7 @@
 void Insert();
 void Delete();
 void Display();
-int maxsize = 2, item, cqueue[10], front = -1, rear = -1;
+int maxsize = 3, item, cqueue[10], front = -1, rear = -1;
 int main()
 {
     char ch = 'Y' || 'y';
