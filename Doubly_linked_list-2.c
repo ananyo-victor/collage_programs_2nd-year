@@ -207,7 +207,7 @@ void DeleteMiddle(struct node **q)
     r = temp->next;
     printf("The deleted node is %d", temp->data);
     old->next = r;
-    r->prev;
+    r->prev=old;
     free(temp);
 }
 
