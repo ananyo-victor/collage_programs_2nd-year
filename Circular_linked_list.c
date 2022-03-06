@@ -9,11 +9,9 @@ struct node
     struct node *next;
 };
 void insertatBeg(struct node **, struct node **);
-// void insertMiddle(struct node *);
 void insertatEnd(struct node **, struct node **);
 void DeleteatBeg(struct node **, struct node **);
 void DeleteatEnd(struct node **, struct node **);
-// void DeleteMiddle(struct node **);
 void Display(struct node *);
 int count(struct node *);
 void main()
@@ -22,19 +20,16 @@ void main()
     first = NULL;
     last = NULL;
     int choice, n = 0;
-    p = NULL;
     char ch = 'y' || 'Y';
     do
     {
-        printf("\n Operation on Doubly Linked List");
+        printf("\n Operation on Circular Linked List");
         printf("\n 1. Insertion at beginning of Linked List");
-        printf("\n 2. Insertion at Middle Of Linked List");
-        printf("\n 3. Insertion at End Of Linked List");
-        printf("\n 4. Deletion at beginning Of Linked List");
-        printf("\n 5. Deletion at End Of Linked List");
-        printf("\n 6. Deletion at Middle Of Linked List");
-        printf("\n 7. Display");
-        printf("\n 8. Count number of nodes");
+        printf("\n 2. Insertion at End Of Linked List");
+        printf("\n 3. Deletion at beginning Of Linked List");
+        printf("\n 4. Deletion at End Of Linked List");
+        printf("\n 5. Display");
+        printf("\n 6. Count number of nodes");
         printf("\n Enter your choice");
 
         scanf("%d", &choice);
@@ -44,24 +39,18 @@ void main()
             insertatBeg(&first, &last); // &p = **f
             break;
         case 2:
-            // insertMiddle(p);
-            break;
-        case 3:
             insertatEnd(&first, &last);
             break;
         case 4:
             DeleteatBeg(&first, &last);
             break;
-        case 5:
+        case 4:
             DeleteatEnd(&first, &last);
             break;
-        case 6:
-            // DeleteMiddle(&first,&last);
-            break;
-        case 7:
+        case 5:
             Display(first);
             break;
-        // case 8:
+        // case 6:
         //     n=count(p);
         //     printf("\n the number of nodes on the Doubly linked list is %d", n);
         //     break;
