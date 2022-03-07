@@ -42,7 +42,7 @@ void Insert()
         printf("\nQueue is full");
         return;
     }
-    if  (rear == maxsize-1)
+    if (rear == maxsize - 1)
     {
         rear = 0;
     }
@@ -53,12 +53,11 @@ void Insert()
     printf("\n Enter the item");
     scanf("%d", &item);
     cqueue[rear] = item;
-    if (front==-1)
+    if (front == -1)
     {
-        front=0;
+        front = 0;
         return;
     }
-    
 }
 void Delete()
 {
@@ -101,6 +100,12 @@ void Display()
     else
     {
         while (f <= maxsize - 1)
+        {
+            printf("\t %d", cqueue[f]);
+            f++;
+        }
+        f = 0;
+        while (f <= r)
         {
             printf("\t %d", cqueue[f]);
             f++;
