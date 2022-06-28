@@ -10,7 +10,7 @@ void main()
 {
   int n;
   char ch = 'Y' || 'y';
-  clrscr();
+  // clrscr();
   do
   {
     printf("\n opeartions of Dqueue");
